@@ -3,29 +3,49 @@
 
 package ma.projet.grpc.stubs;
 
-public interface GetAllComptesResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:GetAllComptesResponse)
+public interface GetCompteByTypeResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:GetCompteByTypeResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Liste des comptes correspondant au type
+   * </pre>
+   *
    * <code>repeated .Compte comptes = 1;</code>
    */
   java.util.List<ma.projet.grpc.stubs.Compte> 
       getComptesList();
   /**
+   * <pre>
+   * Liste des comptes correspondant au type
+   * </pre>
+   *
    * <code>repeated .Compte comptes = 1;</code>
    */
   ma.projet.grpc.stubs.Compte getComptes(int index);
   /**
+   * <pre>
+   * Liste des comptes correspondant au type
+   * </pre>
+   *
    * <code>repeated .Compte comptes = 1;</code>
    */
   int getComptesCount();
   /**
+   * <pre>
+   * Liste des comptes correspondant au type
+   * </pre>
+   *
    * <code>repeated .Compte comptes = 1;</code>
    */
   java.util.List<? extends ma.projet.grpc.stubs.CompteOrBuilder> 
       getComptesOrBuilderList();
   /**
+   * <pre>
+   * Liste des comptes correspondant au type
+   * </pre>
+   *
    * <code>repeated .Compte comptes = 1;</code>
    */
   ma.projet.grpc.stubs.CompteOrBuilder getComptesOrBuilder(

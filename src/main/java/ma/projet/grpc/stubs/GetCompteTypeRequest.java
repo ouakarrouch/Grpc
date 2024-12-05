@@ -4,29 +4,26 @@
 package ma.projet.grpc.stubs;
 
 /**
- * <pre>
- * Requête pour obtenir les statistiques de solde
- * </pre>
- *
- * Protobuf type {@code GetTotalSoldeRequest}
+ * Protobuf type {@code GetCompteTypeRequest}
  */
-public  final class GetTotalSoldeRequest extends
+public  final class GetCompteTypeRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:GetTotalSoldeRequest)
-    GetTotalSoldeRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:GetCompteTypeRequest)
+    GetCompteTypeRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GetTotalSoldeRequest.newBuilder() to construct.
-  private GetTotalSoldeRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetCompteTypeRequest.newBuilder() to construct.
+  private GetCompteTypeRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GetTotalSoldeRequest() {
+  private GetCompteTypeRequest() {
+    type_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new GetTotalSoldeRequest();
+    return new GetCompteTypeRequest();
   }
 
   @java.lang.Override
@@ -34,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetTotalSoldeRequest(
+  private GetCompteTypeRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,6 +49,12 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            type_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -73,15 +76,59 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetTotalSoldeRequest_descriptor;
+    return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetCompteTypeRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetTotalSoldeRequest_fieldAccessorTable
+    return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetCompteTypeRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ma.projet.grpc.stubs.GetTotalSoldeRequest.class, ma.projet.grpc.stubs.GetTotalSoldeRequest.Builder.class);
+            ma.projet.grpc.stubs.GetCompteTypeRequest.class, ma.projet.grpc.stubs.GetCompteTypeRequest.Builder.class);
+  }
+
+  public static final int TYPE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object type_;
+  /**
+   * <pre>
+   * Type de compte recherché (ex. COURANT ou EPARGNE)
+   * </pre>
+   *
+   * <code>string type = 1;</code>
+   * @return The type.
+   */
+  public java.lang.String getType() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      type_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Type de compte recherché (ex. COURANT ou EPARGNE)
+   * </pre>
+   *
+   * <code>string type = 1;</code>
+   * @return The bytes for type.
+   */
+  public com.google.protobuf.ByteString
+      getTypeBytes() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      type_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -98,6 +145,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!getTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -107,6 +157,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!getTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -117,11 +170,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ma.projet.grpc.stubs.GetTotalSoldeRequest)) {
+    if (!(obj instanceof ma.projet.grpc.stubs.GetCompteTypeRequest)) {
       return super.equals(obj);
     }
-    ma.projet.grpc.stubs.GetTotalSoldeRequest other = (ma.projet.grpc.stubs.GetTotalSoldeRequest) obj;
+    ma.projet.grpc.stubs.GetCompteTypeRequest other = (ma.projet.grpc.stubs.GetCompteTypeRequest) obj;
 
+    if (!getType()
+        .equals(other.getType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -133,74 +188,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(byte[] data)
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(java.io.InputStream input)
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseDelimitedFrom(java.io.InputStream input)
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseDelimitedFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest parseFrom(
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -213,7 +270,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ma.projet.grpc.stubs.GetTotalSoldeRequest prototype) {
+  public static Builder newBuilder(ma.projet.grpc.stubs.GetCompteTypeRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -229,30 +286,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * Requête pour obtenir les statistiques de solde
-   * </pre>
-   *
-   * Protobuf type {@code GetTotalSoldeRequest}
+   * Protobuf type {@code GetCompteTypeRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:GetTotalSoldeRequest)
-      ma.projet.grpc.stubs.GetTotalSoldeRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:GetCompteTypeRequest)
+      ma.projet.grpc.stubs.GetCompteTypeRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetTotalSoldeRequest_descriptor;
+      return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetCompteTypeRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetTotalSoldeRequest_fieldAccessorTable
+      return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetCompteTypeRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ma.projet.grpc.stubs.GetTotalSoldeRequest.class, ma.projet.grpc.stubs.GetTotalSoldeRequest.Builder.class);
+              ma.projet.grpc.stubs.GetCompteTypeRequest.class, ma.projet.grpc.stubs.GetCompteTypeRequest.Builder.class);
     }
 
-    // Construct using ma.projet.grpc.stubs.GetTotalSoldeRequest.newBuilder()
+    // Construct using ma.projet.grpc.stubs.GetCompteTypeRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -270,23 +323,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      type_ = "";
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetTotalSoldeRequest_descriptor;
+      return ma.projet.grpc.stubs.CompteOuterClass.internal_static_GetCompteTypeRequest_descriptor;
     }
 
     @java.lang.Override
-    public ma.projet.grpc.stubs.GetTotalSoldeRequest getDefaultInstanceForType() {
-      return ma.projet.grpc.stubs.GetTotalSoldeRequest.getDefaultInstance();
+    public ma.projet.grpc.stubs.GetCompteTypeRequest getDefaultInstanceForType() {
+      return ma.projet.grpc.stubs.GetCompteTypeRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ma.projet.grpc.stubs.GetTotalSoldeRequest build() {
-      ma.projet.grpc.stubs.GetTotalSoldeRequest result = buildPartial();
+    public ma.projet.grpc.stubs.GetCompteTypeRequest build() {
+      ma.projet.grpc.stubs.GetCompteTypeRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -294,8 +349,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ma.projet.grpc.stubs.GetTotalSoldeRequest buildPartial() {
-      ma.projet.grpc.stubs.GetTotalSoldeRequest result = new ma.projet.grpc.stubs.GetTotalSoldeRequest(this);
+    public ma.projet.grpc.stubs.GetCompteTypeRequest buildPartial() {
+      ma.projet.grpc.stubs.GetCompteTypeRequest result = new ma.projet.grpc.stubs.GetCompteTypeRequest(this);
+      result.type_ = type_;
       onBuilt();
       return result;
     }
@@ -334,16 +390,20 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ma.projet.grpc.stubs.GetTotalSoldeRequest) {
-        return mergeFrom((ma.projet.grpc.stubs.GetTotalSoldeRequest)other);
+      if (other instanceof ma.projet.grpc.stubs.GetCompteTypeRequest) {
+        return mergeFrom((ma.projet.grpc.stubs.GetCompteTypeRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ma.projet.grpc.stubs.GetTotalSoldeRequest other) {
-      if (other == ma.projet.grpc.stubs.GetTotalSoldeRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(ma.projet.grpc.stubs.GetCompteTypeRequest other) {
+      if (other == ma.projet.grpc.stubs.GetCompteTypeRequest.getDefaultInstance()) return this;
+      if (!other.getType().isEmpty()) {
+        type_ = other.type_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -359,17 +419,113 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      ma.projet.grpc.stubs.GetTotalSoldeRequest parsedMessage = null;
+      ma.projet.grpc.stubs.GetCompteTypeRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ma.projet.grpc.stubs.GetTotalSoldeRequest) e.getUnfinishedMessage();
+        parsedMessage = (ma.projet.grpc.stubs.GetCompteTypeRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
           mergeFrom(parsedMessage);
         }
       }
+      return this;
+    }
+
+    private java.lang.Object type_ = "";
+    /**
+     * <pre>
+     * Type de compte recherché (ex. COURANT ou EPARGNE)
+     * </pre>
+     *
+     * <code>string type = 1;</code>
+     * @return The type.
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        type_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Type de compte recherché (ex. COURANT ou EPARGNE)
+     * </pre>
+     *
+     * <code>string type = 1;</code>
+     * @return The bytes for type.
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Type de compte recherché (ex. COURANT ou EPARGNE)
+     * </pre>
+     *
+     * <code>string type = 1;</code>
+     * @param value The type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      type_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Type de compte recherché (ex. COURANT ou EPARGNE)
+     * </pre>
+     *
+     * <code>string type = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearType() {
+      
+      type_ = getDefaultInstance().getType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Type de compte recherché (ex. COURANT ou EPARGNE)
+     * </pre>
+     *
+     * <code>string type = 1;</code>
+     * @param value The bytes for type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      type_ = value;
+      onChanged();
       return this;
     }
     @java.lang.Override
@@ -385,41 +541,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:GetTotalSoldeRequest)
+    // @@protoc_insertion_point(builder_scope:GetCompteTypeRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:GetTotalSoldeRequest)
-  private static final ma.projet.grpc.stubs.GetTotalSoldeRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:GetCompteTypeRequest)
+  private static final ma.projet.grpc.stubs.GetCompteTypeRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ma.projet.grpc.stubs.GetTotalSoldeRequest();
+    DEFAULT_INSTANCE = new ma.projet.grpc.stubs.GetCompteTypeRequest();
   }
 
-  public static ma.projet.grpc.stubs.GetTotalSoldeRequest getDefaultInstance() {
+  public static ma.projet.grpc.stubs.GetCompteTypeRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GetTotalSoldeRequest>
-      PARSER = new com.google.protobuf.AbstractParser<GetTotalSoldeRequest>() {
+  private static final com.google.protobuf.Parser<GetCompteTypeRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GetCompteTypeRequest>() {
     @java.lang.Override
-    public GetTotalSoldeRequest parsePartialFrom(
+    public GetCompteTypeRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetTotalSoldeRequest(input, extensionRegistry);
+      return new GetCompteTypeRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GetTotalSoldeRequest> parser() {
+  public static com.google.protobuf.Parser<GetCompteTypeRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GetTotalSoldeRequest> getParserForType() {
+  public com.google.protobuf.Parser<GetCompteTypeRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ma.projet.grpc.stubs.GetTotalSoldeRequest getDefaultInstanceForType() {
+  public ma.projet.grpc.stubs.GetCompteTypeRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

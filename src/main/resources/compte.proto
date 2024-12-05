@@ -45,6 +45,14 @@ message GetCompteByIdRequest {
   string id = 1;
 }
 
+message GetCompteTypeRequest {
+  string type = 1; // Type de compte recherché (ex. COURANT ou EPARGNE)
+}
+
+message GetCompteByTypeResponse {
+  repeated Compte comptes = 1; // Liste des comptes correspondant au type
+}
+
 // Réponse contenant le compte demandé
 message GetCompteByIdResponse {
   Compte compte = 1;
@@ -67,6 +75,10 @@ message SaveCompteRequest {
 message SaveCompteResponse {
   Compte compte = 1;
 }
+message DeleteCompteResponse {
+  string message = 1;
+  bool success = 2;
+}
 
 // Définition du service correspondant aux requêtes et mutations GraphQL
 service CompteService {
@@ -76,9 +88,12 @@ service CompteService {
   // Équivalent de la requête compteById
   rpc CompteById(GetCompteByIdRequest) returns (GetCompteByIdResponse);
 
+  rpc DeleteCompteById(GetCompteByIdRequest) returns (DeleteCompteResponse);
   // Équivalent de la requête totalSolde
   rpc TotalSolde(GetTotalSoldeRequest) returns (GetTotalSoldeResponse);
 
   // Équivalent de la mutation saveCompte
   rpc SaveCompte(SaveCompteRequest) returns (SaveCompteResponse);
+
+  rpc CompteByType(GetCompteTypeRequest) returns (GetCompteByTypeResponse);
 }
